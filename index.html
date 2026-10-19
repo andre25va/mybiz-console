@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MyBiz Console — Verification</title>
+<link rel="icon" href="data:," />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header id="topbar">
+  <div class="brand"><span class="brand-mark"></span>MyBiz Console</div>
+  <div class="topbar-right">
+    <span class="pill" id="verify-pill"><span class="pill-dot"></span><span id="verify-pill-text">loading</span></span>
+    <span class="mock-note" id="mock-note">mock data</span>
+  </div>
+</header>
+
+<div id="layout">
+  <nav id="sidebar">
+    <button class="nav-item active" data-section="facts"><span class="nav-label">Fact Sheets</span></button>
+    <button class="nav-item" data-section="queue"><span class="nav-label">Verification Queue</span><span class="nav-badge" id="queue-badge"></span></button>
+    <button class="nav-item" data-section="tasks"><span class="nav-label">Tasks</span></button>
+    <button class="nav-item" data-section="answers"><span class="nav-label">Answer Log</span></button>
+    <div class="sidebar-foot">The AI answers only<br />from verified facts.</div>
+  </nav>
+  <main id="content">
+    <section id="section-facts" class="panel active"></section>
+    <section id="section-queue" class="panel"></section>
+    <section id="section-tasks" class="panel"></section>
+    <section id="section-answers" class="panel"></section>
+  </main>
+</div>
+
+<div id="error-banner" class="hidden"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
