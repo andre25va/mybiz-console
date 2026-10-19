@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<title>JS diagnostic</title>
+</head>
+<body>
+<p id="status">INLINE JS DID NOT RUN</p>
+<p id="ext">EXTERNAL JS DID NOT RUN</p>
+<script>
+document.getElementById('status').textContent = 'INLINE JS RAN OK';
+</script>
+<script src="test.js"></script>
+</body>
+</html>
