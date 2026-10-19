@@ -2,14 +2,24 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
-<title>JS diagnostic</title>
+<title>app.js syntax check</title>
 </head>
 <body>
-<p id="status">INLINE JS DID NOT RUN</p>
-<p id="ext">EXTERNAL JS DID NOT RUN</p>
+<p id="result">CHECKING app.js SYNTAX...</p>
 <script>
-document.getElementById('status').textContent = 'INLINE JS RAN OK';
+fetch('app.js').then(function(r) {
+  if (!r.ok) throw new Error('HTTP ' + r.status);
+  return r.text();
+}).then(function(code) {
+  try {
+    new Function(code);
+    document.getElementById('result').textContent = 'app.js SYNTAX OK (' + code.length + ' chars)';
+  } catch (e) {
+    document.getElementById('result').textContent = 'app.js SYNTAX ERROR: ' + e.message;
+  }
+}).catch(function(e) {
+  document.getElementById('result').textContent = 'FETCH FAILED: ' + e.message;
+});
 </script>
-<script src="test.js"></script>
 </body>
 </html>
